@@ -68,7 +68,7 @@ namespace Hub.Service.Extensions
                   {
                       cfg.Host(new Uri($"activemq://{serviceBusSettings.ServerName}"), h =>
                       {
-                          // h.UseSsl();
+                          // h.UseSsl(); 
 
                           //h.Username("admin");
                           //h.Password("admin");
