@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authservice
+  namespace: fac
+spec:
+  selector:
+    matchLabels:
+      app: authservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: authservice
+    spec:
+      containers:
+        - name: authservice-pod
+          image: vsimone67/authservice:latest
+          imagePullPolicy: 'Always'
+          ports:
+            - name: http
+              containerPort: 80
+          env:
+            - name: 'appdirectory'
+              value: '/app/settings/'
+          volumeMounts:
+            - name: configs
+              mountPath: '/app/settings'
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: configs
+          projected:
+            sources:
+              - configMap:
+                  name: appsettings-authservice
+              - secret:
+                  name: appsettings-secret-authservice
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: authservice-svc
+  namespace: fac
+spec:
+  ports:
+    - name: web
+      port: 80
+  selector:
+    app: authservice
+---
+kind: IngressRoute
+apiVersion: traefik.containo.us/v1alpha1
+metadata:
+  name: authservice-route
+  namespace: fac
+spec:
+  entryPoints:
+    - web
+  routes:  
+    - match: Host(`facpoc.titan`) && PathPrefix(`/authorize/{catchall}`)
+      kind: Rule
+      services:
+        - name: authservice-svc
+          port: 80
+    - match: Host(`facpoc.titan`) && PathPrefix(`/authservice/health`)
+      kind: Rule
+      services:
+        - name: authservice-svc
+          port: 80
+      middlewares:
+        - name: st-healthcheck
+    - match: Host(`facpoc.titan`) && PathPrefix(`/authservice/metrics`)
+      kind: Rule
+      services:
+        - name: authservice-svc
+          port: 80
+      middlewares:
+        - name: st-metrics
