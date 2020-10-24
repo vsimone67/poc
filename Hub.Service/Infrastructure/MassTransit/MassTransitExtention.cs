@@ -23,6 +23,8 @@ namespace Hub.Service.Extensions
                       serviceBusSettings = configuration.GetOptions<ServiceBusSettings>("ServiceBusSettings");
                   }
                   x.AddConsumer<MibCompletedConsumer>();  // this is the way to subscribe to events/commands
+                  x.AddConsumer<FacDecisionCompletedConsumer>();
+                  x.AddConsumer<FacCaseSubmittedConsumer>();
 
                   x.UsingRabbitMq((context, cfg) =>
                   {
@@ -31,9 +33,8 @@ namespace Hub.Service.Extensions
                           h.Username(serviceBusSettings.UserName);
                           h.Password(serviceBusSettings.Password);
                       });
-                      cfg.ReceiveEndpoint(serviceBusSettings.ListenQueueName, e => // this is the way to subscribe to events/commands
+                      cfg.ReceiveEndpoint(serviceBusSettings.SubmitMibEventQueue, e => // this is the way to subscribe to events/commands
                       {
-
                           e.Consumer<MibCompletedConsumer>(context);
                           e.UseMessageRetry(r =>
                           {
@@ -42,7 +43,26 @@ namespace Hub.Service.Extensions
                           });
 
                       });
+                      cfg.ReceiveEndpoint(serviceBusSettings.FacDecisionEventQueue, e => // this is the way to subscribe to events/commands
+                      {
+                          e.Consumer<FacDecisionCompletedConsumer>(context);
+                          e.UseMessageRetry(r =>
+                          {
+                              r.Immediate(serviceBusSettings.NumberOfRetries);
+                              r.Intervals(serviceBusSettings.RetryInterval);
+                          });
 
+                      });
+                      cfg.ReceiveEndpoint(serviceBusSettings.FacCaseEventQueue, e => // this is the way to subscribe to events/commands
+                      {
+                          e.Consumer<FacCaseSubmittedConsumer>(context);
+                          e.UseMessageRetry(r =>
+                          {
+                              r.Immediate(serviceBusSettings.NumberOfRetries);
+                              r.Intervals(serviceBusSettings.RetryInterval);
+                          });
+
+                      });
                   });
               });
 
@@ -63,6 +83,8 @@ namespace Hub.Service.Extensions
                       serviceBusSettings = configuration.GetOptions<ServiceBusSettings>("ServiceBusSettings");
                   }
                   x.AddConsumer<MibCompletedConsumer>(); // this is the way to subscribe to events/commands
+                  x.AddConsumer<FacDecisionCompletedConsumer>();
+                  x.AddConsumer<FacCaseSubmittedConsumer>();
 
                   x.UsingActiveMq((context, cfg) =>
                   {
@@ -73,7 +95,7 @@ namespace Hub.Service.Extensions
                           //h.Username("admin");
                           //h.Password("admin");
                       });
-                      cfg.ReceiveEndpoint(serviceBusSettings.ListenQueueName, e => // this is the way to subscribe to events/commands
+                      cfg.ReceiveEndpoint(serviceBusSettings.SubmitMibEventQueue, e => // this is the way to subscribe to events/commands
                       {
 
                           e.Consumer<MibCompletedConsumer>(context);
@@ -84,7 +106,26 @@ namespace Hub.Service.Extensions
                           });
 
                       });
+                      cfg.ReceiveEndpoint(serviceBusSettings.FacDecisionEventQueue, e => // this is the way to subscribe to events/commands
+                      {
+                          e.Consumer<FacDecisionCompletedConsumer>(context);
+                          e.UseMessageRetry(r =>
+                          {
+                              r.Immediate(serviceBusSettings.NumberOfRetries);
+                              r.Intervals(serviceBusSettings.RetryInterval);
+                          });
 
+                      });
+                      cfg.ReceiveEndpoint(serviceBusSettings.FacCaseEventQueue, e => // this is the way to subscribe to events/commands
+                      {
+                          e.Consumer<FacCaseSubmittedConsumer>(context);
+                          e.UseMessageRetry(r =>
+                          {
+                              r.Immediate(serviceBusSettings.NumberOfRetries);
+                              r.Intervals(serviceBusSettings.RetryInterval);
+                          });
+
+                      });
                   });
               });
 

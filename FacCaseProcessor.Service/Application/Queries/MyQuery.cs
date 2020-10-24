@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using MediatR;
-using Hub.Service.Application.Dto;
+using FacCaseProcessor.Service.Application.Dto;
 
-namespace Hub.Service.Application.Queries
+namespace FacCaseProcessor.Service.Application.Queries
 {
     public class MyQuery : IRequest<List<MyDto>>
     {

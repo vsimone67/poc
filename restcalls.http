@@ -1,0 +1,15 @@
+GET http://facpoc.titan/mibservice/health
+###
+GET http://facpoc.titan/facservice/health
+###
+GET http://facpoc.titan/mibhubservice/health
+###
+GET http://facpoc.titan/caseservice/health
+###
+GET http://facpoc.titan/correspondenceservice/health
+### MIB => HUB
+GET http://facpoc.titan/fac/SubmitMib
+### Correspondence => Decision
+GET http://facpoc.titan/fac/FacCaseDecision
+### Fac Case Processor => Case
+GET http://facpoc.titan/fac/SubmitCase
