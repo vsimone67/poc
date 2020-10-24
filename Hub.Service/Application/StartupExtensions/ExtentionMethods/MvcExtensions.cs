@@ -28,9 +28,6 @@ namespace Hub.Service.Extensions
                     .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
             services.AddControllers();
-
-            //TODO: Uncomment line below and add DB Context
-            //services.AddHealthChecks().AddDbContextCheck<CrmContext>();
             services.AddHealthChecks();
             services.AddHealthActuator(Configuration);
             services.AddMetricsActuator(Configuration);
@@ -51,6 +48,8 @@ namespace Hub.Service.Extensions
                     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
                 });
                 endpoints.MapHub<MibHub>("/mibhub");
+                endpoints.MapHub<FacDecisionHub>("/facdecision");
+                endpoints.MapHub<FacCaseHub>("/faccase");
             });
 
 

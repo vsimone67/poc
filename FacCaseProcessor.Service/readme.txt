@@ -1,8 +1,8 @@
 To Install Template (one time) Run
-    dotnet new -i .\Hub.Service
+    dotnet new -i .\FacCaseProcessor.Service
 
 To UnInstall Run
-    dotnet new -u FULLPATHINCLUDINGDRIVE\Hub.Service
+    dotnet new -u FULLPATHINCLUDINGDRIVE\FacCaseProcessor.Service
 
 To List all templates and show their uninstall command
     dotnet new -u

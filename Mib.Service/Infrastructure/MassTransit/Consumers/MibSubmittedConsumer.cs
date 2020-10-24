@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Fac.Service.Infrastructure.MassTransit.Models;
 using MassTransit;

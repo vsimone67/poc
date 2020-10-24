@@ -6,10 +6,10 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
-using Hub.Service.Application.Dto;
-using Hub.Service.Persistence.DbService;
+using FacCaseProcessor.Service.Application.Dto;
+using FacCaseProcessor.Service.Persistence.DbService;
 
-namespace Hub.Service.Application.Queries
+namespace FacCaseProcessor.Service.Application.Queries
 {
     public class MyQueryHandler : IRequestHandler<MyQuery, List<MyDto>>
     {

@@ -31,7 +31,7 @@ spec:
               path: /health
               port: 80
             initialDelaySeconds: 5
-            periodSeconds: 5
+            periodSeconds: 360
       volumes:
         - name: configs
           projected:
@@ -63,6 +63,16 @@ spec:
     - web
   routes:   
     - match: Host(`facpoc.titan`) && PathPrefix(`/mibhub`)
+      kind: Rule
+      services:
+        - name: hubservice-svc
+          port: 80
+    - match: Host(`facpoc.titan`) && PathPrefix(`/facdecision`)
+      kind: Rule
+      services:
+        - name: hubservice-svc
+          port: 80
+    - match: Host(`facpoc.titan`) && PathPrefix(`/faccase`)
       kind: Rule
       services:
         - name: hubservice-svc

@@ -18,7 +18,15 @@ services:
   #   project: ApiGateway/ApiGateway.csproj    
   #   bindings:
   #     - port: 4003
-  - name: authservice
-    project: Authentication.Service/Authentication.Service.csproj
+  # - name: authservice
+  #   project: Authentication.Service/Authentication.Service.csproj
+  #   bindings:
+  #     - port: 4004
+  - name: correspondenceservice
+    project: Correspondence.Service/Correspondence.Service.csproj
     bindings:
-      - port: 4004
+      - port: 4005
+  - name: caseservice
+    project: FacCaseProcessor.Service/FacCaseProcessor.Service.csproj
+    bindings:
+      - port: 4006
