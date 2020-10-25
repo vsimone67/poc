@@ -26,7 +26,6 @@ export class SignalrHubService {
         .start()
         .then(() => {
           this._isConnected = true;
-          console.log("Mib connection started");
         })
         .catch((err) => {
           console.error(err.toString());

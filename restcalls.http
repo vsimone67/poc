@@ -13,3 +13,17 @@ GET http://facpoc.titan/fac/SubmitMib
 GET http://facpoc.titan/fac/FacCaseDecision
 ### Fac Case Processor => Case
 GET http://facpoc.titan/fac/SubmitCase
+
+###
+POST http://facpoc.titan/fac/PostMib 
+Content-Type: application/json
+
+{
+    "FirstName": "Joe",
+    "LastName": "Mope",
+    "Dob": "12/1/2000"
+}
+### Fac Case Processor => Case
+GET http://localhost:4003/fac/SubmitCase
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiR0FNRVJQQ1xcdnNpbW8iLCJleHAiOjE2MDM1NzEzMTksImlzcyI6IlhYWFgiLCJhdWQiOiJYWFhYIn0.b_iZz5GDLCg3vRSQGeQNvVWS7F8PV1AE9UfV-0RC824
+

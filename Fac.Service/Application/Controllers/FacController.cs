@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Fac.Service.Application.Commands;
+using Fac.Service.Infrastructure.MassTransit.Models;
 
 namespace Fac.Service
 {
@@ -48,6 +49,14 @@ namespace Fac.Service
             var data = await _mediator.Send(new SubmitCaseCommand());
             _logger.LogDebug("Submit case has been sent");
             return Ok(data);
+        }
+
+        [HttpPost]
+        [Route("PostMib")]
+        public async Task<IActionResult> PostMib([FromBody] MibSubmitted mib)
+        {
+            await Task.FromResult(1);
+            return Ok(mib);
         }
     }
 }

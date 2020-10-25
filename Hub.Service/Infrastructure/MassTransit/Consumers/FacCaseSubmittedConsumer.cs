@@ -4,14 +4,13 @@ using Hub.Service.Application.Hubs;
 using MassTransit;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
-
 namespace Hub.Service.Extensions.MassTransit.Consumers
 {
     public class FacCaseSubmittedConsumer : IConsumer<FacCaseEvent>
     {
         private readonly ILogger<FacDecisionCompletedConsumer> _logger;
-        private readonly IHubContext<FacDecisionHub> _hubContext;
-        public FacCaseSubmittedConsumer(ILogger<FacDecisionCompletedConsumer> logger, IHubContext<FacDecisionHub> hubContext)
+        private readonly IHubContext<FacCaseHub> _hubContext;
+        public FacCaseSubmittedConsumer(ILogger<FacDecisionCompletedConsumer> logger, IHubContext<FacCaseHub> hubContext)
         {
             _logger = logger;
             _hubContext = hubContext;
