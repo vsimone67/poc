@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: mibservice
+      app: mibservice      
   replicas: 1
   template:
     metadata:

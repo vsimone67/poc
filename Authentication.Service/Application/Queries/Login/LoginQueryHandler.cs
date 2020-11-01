@@ -35,7 +35,8 @@ namespace Authentication.Service.Query.Login
                 var claims = new List<Claim>
                 {
                      new Claim(ClaimTypes.Name, request.UserName),
-                };
+                     new Claim(ClaimTypes.Role,"Administrator")
+            };
 
                 var tokeOptions = new JwtSecurityToken(
                    issuer: _settings.Value.Issuer,

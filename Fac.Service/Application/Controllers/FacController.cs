@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Fac.Service.Application.Commands;
 using Fac.Service.Infrastructure.MassTransit.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fac.Service
 {
@@ -31,6 +32,7 @@ namespace Fac.Service
             return Ok(data);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         [Route("FacCaseDecision")]
         public async Task<ActionResult> FacCaseDecision()

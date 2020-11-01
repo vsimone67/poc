@@ -5,13 +5,11 @@
   background-color: transparent; /* specify the alternate background-color */
   width: 100%;
   border: 0 !important;
-
 }
 
 .card {
   border: 0 !important;
 }
-
 
 .jumbotron {
   padding-bottom: 0%;
@@ -35,7 +33,7 @@ body {
 
 .my-side {
   height: 7vh;
-  background: linear-gradient(#00304C, #168B9F);
+  background: linear-gradient(#00304c, #168b9f);
 }
 
 .logo {
@@ -66,7 +64,6 @@ body {
   background: #0e6a81;
 }
 
-
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
@@ -85,31 +82,31 @@ body {
   color: #0e6a81 !important;
   font-size: 13px;
   text-align: center !important;
-
 }
 
 .ag-theme-alpine .ag-header-cell-resize::after {
   height: 100%;
-  top: 0
+  top: 0;
 }
 
 span.ag-header-cell-text {
   width: 100%;
 }
 
-.form-control, .form-control:focus {
+.form-control,
+.form-control:focus {
   border-color: #148398 !important;
 }
 
 /* Dialog header */
 .ui-dialog-titlebar {
-  background-color: #E5EBEF !important;
+  background-color: #e5ebef !important;
   color: #0e6a81 !important;
   text-align: center;
 }
 
 .node text {
-  fill: #FFFFFF !important;
+  fill: #ffffff !important;
 }
 
 .ui-togglebutton:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus {
@@ -140,7 +137,9 @@ span.ag-header-cell-text {
   width: 100%;
 }
 
-.ui-multiselect-panel .ui-multiselect-items .ui-multiselect-item.ui-state-highlight {
+.ui-multiselect-panel
+  .ui-multiselect-items
+  .ui-multiselect-item.ui-state-highlight {
   color: #0e6a81 !important;
   background-color: transparent !important;
 }
@@ -158,39 +157,43 @@ span.ag-header-cell-text {
 }
 
 .label-multi {
-
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
   font-size: 12px;
   float: right;
-  margin-top: 4px
+  margin-top: 4px;
 }
 
 .ui-multiselect .ui-multiselect-panel {
   max-width: 13em;
 }
 
-.ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container
-.ui-multiselect-filter-icon {
+.ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-multiselect-filter-icon {
   color: #0e6a81;
 }
 
 .ui-inputtext:enabled:focus:not(.ui-state-error) {
-
   box-shadow: 0 0 0 0 !important;
   border-color: #0e6a81 !important;
 }
 
-.ui-multiselect-panel .ui-multiselect-header .ui-multiselect-filter-container
-.ui-multiselect-filter-icon {
+.ui-multiselect-panel
+  .ui-multiselect-header
+  .ui-multiselect-filter-container
+  .ui-multiselect-filter-icon {
   color: #0e6a81 !important;
 }
 
 /* tabl view background color */
-body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active,
+body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
   background: #0e6a81 !important;
-
 }
 
 /* Format all text */
@@ -199,7 +202,6 @@ input[type="text"] {
   border-bottom: 2px solid #3cbabe;
   outline: 0;
   border-radius: 0;
-
 }
 
 /* make PrimeNG spinner overlay on top center */
@@ -209,7 +211,6 @@ input[type="text"] {
   margin-left: 50%;
   margin-right: 50%;
   margin-top: 7%;
-
 }
 
 /* center vertically */
@@ -232,10 +233,10 @@ body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
 
 /* color the sub menu icon */
 .ui-menubar
-.ui-menubar-root-list
-> .ui-menuitem
-> .ui-menuitem-link
-> .ui-submenu-icon {
+  .ui-menubar-root-list
+  > .ui-menuitem
+  > .ui-menuitem-link
+  > .ui-submenu-icon {
   color: white;
 }
 
@@ -248,7 +249,6 @@ body .ui-menubar .ui-submenu-list {
 body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link {
   background: linear-gradient(#00304c, #168b9f);
 }
-
 
 /* Set menu text */
 body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
@@ -267,7 +267,7 @@ body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
   border: 1px solid #168b9f !important;
   border-radius: 8px !important;
 }
-.cleardata{
+.cleardata {
   color: #168b9f !important;
   background-color: white !important;
   border: 1px solid #168b9f !important;
@@ -279,11 +279,10 @@ body .ui-menubar .ui-menuitem-link .ui-menuitem-text {
   color: white;
 }
 
-
 /* Change color of all labels */
 label {
   font-weight: 500;
-  color: #0E7193;
+  color: #0e7193;
 }
 
 /* Next few are for the drop downs, constant color and just a border at the bottom */
@@ -301,8 +300,11 @@ body .ui-dropdown .ui-dropdown-panel .ui-dropdown-item {
 }
 
 /* dropodown hightighted row */
-body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight, body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item-group.ui-state-highlight {
-
+body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight,
+body
+  .ui-dropdown-panel
+  .ui-dropdown-items
+  .ui-dropdown-item-group.ui-state-highlight {
   background-color: lightgray;
 }
 
@@ -320,7 +322,10 @@ body .ui-dropdown-panel .ui-dropdown-items .ui-dropdown-item.ui-state-highlight,
 }
 
 /* Colors for accordian */
-body .ui-accordion .ui-accordion-header:not(.ui-state-disabled).ui-state-active a {
+body
+  .ui-accordion
+  .ui-accordion-header:not(.ui-state-disabled).ui-state-active
+  a {
   background-color: #0e6a81 !important;
   border: 1px solid #0e6a81 !important;
   color: #ffffff;
@@ -337,76 +342,78 @@ body .ui-accordion .ui-accordion-header a {
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 
-
 /* Tab View Styles */
-.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li,.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active {
+.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li,
+.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active {
   background: transparent !important;
   margin: 0;
   border: none;
 }
 
-.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a ,
-.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover a{
+.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active a,
+.tabClaims
+  .ui-tabview.ui-tabview-top
+  .ui-tabview-nav
+  li.ui-state-active:hover
+  a {
   color: #0e6a81;
 }
-.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li:hover{
-  border:none !important;
-  background: #0e6a814D !important;
+.tabClaims .ui-tabview.ui-tabview-top .ui-tabview-nav li:hover {
+  border: none !important;
+  background: #0e6a814d !important;
 }
 /*Menu Styling */
-.menuItems .ui-menubar .ui-menuitem-link .ui-menuitem-text{
+.menuItems .ui-menubar .ui-menuitem-link .ui-menuitem-text {
   color: black !important;
 }
-.menuItems .ui-menubar{
-   width: 100%;
+.menuItems .ui-menubar {
+  width: 100%;
   height: 40px;
   border-radius: 0;
-   border-bottom: 1px solid #c8c8c8;
+  border-bottom: 1px solid #c8c8c8;
 }
-body .ui-breadcrumb{
+body .ui-breadcrumb {
   border-right: none;
   height: 40px;
   border-radius: 0;
 }
-.menuItems .ui-menubar .ui-menubar-root-list{
+.menuItems .ui-menubar .ui-menubar-root-list {
   float: right;
 }
-.menuItems  .ui-menubar .ui-menuitem .ui-menuitem-link:hover{
+.menuItems .ui-menubar .ui-menuitem .ui-menuitem-link:hover {
   background: transparent;
 }
-.menuItems  .ui-menubar .ui-menuitem .ui-menuitem-link:hover span,
-.menuItems  .ui-menubar .ui-menuitem .ui-menuitem-link:hover .ui-menuitem-text  {
+.menuItems .ui-menubar .ui-menuitem .ui-menuitem-link:hover span,
+.menuItems .ui-menubar .ui-menuitem .ui-menuitem-link:hover .ui-menuitem-text {
   color: #148398 !important;
   font-size: 13px;
   font-weight: bold;
 }
 
-
-.filterLabel{
-  color:#148398 !important;
+.filterLabel {
+  color: #148398 !important;
   font-weight: 600;
   font-size: 14px;
-
 }
 .iconHide {
   font-size: 19px !important;
   color: #0e6a81;
   font-weight: 700;
 }
-.log-card{
-  width:95%
+.log-card {
+  width: 95%;
 }
 .log .ui-card.ui-widget.ui-widget-content.ui-corner-all {
   border-radius: 0;
 }
-.spanText{
+.spanText {
   color: #000;
   font-weight: 600;
-
 }
-.dateCalendar .ui-inputtext{
+.dateCalendar .ui-inputtext {
   height: 25px !important;
 }
-.ag-icon-tree-open , .ag-icon-tree-closed {
+.ag-icon-tree-open,
+.ag-icon-tree-closed {
   color: #148398 !important;
 }

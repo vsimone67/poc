@@ -22,6 +22,7 @@ namespace Fac.Service
         {
             services.AddCorsPolicy();
             services.AddMvcExtensions(Configuration);
+            services.AddJwtAuthentication();
             services.AddCommandQueryHandlers();
             services.AddMappingProfiles();
             services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
@@ -36,6 +37,7 @@ namespace Fac.Service
         {
             app.UseRouting();
             app.UserCorsPolicy();
+            app.UseJwtAuthentication();
             app.UseMvcExtensions();
             //app.UseHttpsRedirection();
         }

@@ -12,9 +12,9 @@ export class AuthenticationService {
   constructor(private _httpService: HttpService) {}
 
   async login() {
-    // this._authUrl = `${environment.moo}/${SiteConstants.authorizationApiController}`;
+    // this._authUrl = `${environment.apiGatewayUrl}/${SiteConstants.authorizationApiController}`;
     // localStorage.removeItem(SiteConstants.UserToken);
-    // var user = await this._httpService.getData<User>(`${this._authUrl}/login`);
+    // var user = await this._httpService.getData<User>(`${this._authUrl}/loginnew`);
     // if (user && user.token) {
     //   localStorage.setItem(SiteConstants.UserToken, JSON.stringify(user));
     // }

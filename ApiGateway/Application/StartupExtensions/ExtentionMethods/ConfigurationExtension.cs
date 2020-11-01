@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Pacco.APIGateway.Ocelot.Infrastructure;
 
 namespace ApiGateway.Extensions
 {
@@ -10,7 +9,6 @@ namespace ApiGateway.Extensions
 
         public static IServiceCollection MapConfigToClass(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<AnonymousRoutesOptions>(configuration.GetSection("AnonymousRoutes"));
             return services;
         }
         public static IHostBuilder AddConfiguration(this IHostBuilder builder, string basePath = "")

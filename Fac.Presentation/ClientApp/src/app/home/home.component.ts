@@ -14,11 +14,7 @@ export class HomeComponent implements OnInit {
   private _facDecisionConnection: SignalrHubService;
   private _facCaseConnection: SignalrHubService;
 
-  constructor(
-
-    private messageService: MessageService,
-    private _httpService: HttpService
-  ) {
+  constructor( private messageService: MessageService, private _httpService: HttpService) {
     // cant inject SignalrHubSerivce if you have multiple listeners becuase the service is a singleton
     this._mibConnection = new SignalrHubService();
     this._facDecisionConnection = new SignalrHubService();

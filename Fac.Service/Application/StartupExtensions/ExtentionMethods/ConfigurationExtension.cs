@@ -34,9 +34,9 @@ namespace Fac.Service.Extensions
 
         public static IHostBuilder AddAppConfigurationFromEnvironment(this IHostBuilder builder)
         {
-            var config = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
-                                                               .AddEnvironmentVariables()
-                                                               .Build(); // get variables from environment to pass to config (if exist)
+            var config = new ConfigurationBuilder()
+                             .AddEnvironmentVariables()
+                             .Build(); // get variables from environment to pass to config (if exist)
 
             string basePath = config.GetValue<string>("appdirectory").NullToEmpty();
 

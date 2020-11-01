@@ -12,7 +12,6 @@ namespace ApiGateway.Extensions
         public static IServiceCollection ConfigureDiEnvironment(this IServiceCollection services, IConfiguration Configuration)
         {
             // ******* Add Database Services here *******
-            services.AddSingleton<IAnonymousRouteValidator, AnonymousRouteValidator>();
 
             // ************** Add Contexts here **********       
             //Uncomment and change to the DB Context you are using

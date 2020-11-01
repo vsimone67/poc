@@ -40,5 +40,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">       
         <EnvironmentName>Development</EnvironmentName>        
     </PropertyGroup>  
+
+  <!-- <Choose>
+    <When Condition="'$(Configuration)' == 'Kubernetes'">
+      <ItemGroup>
+        <Content Remove="appsettings.secrets.json" />    
+        <Content Remove="appsettings.json" />
+      </ItemGroup>
+    </When>  
+</Choose> -->
        
 </Project>
