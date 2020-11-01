@@ -16,16 +16,16 @@ spec:
       containers:
         - name: facservice-pod
           image: vsimone67/facservice:latest
-          imagePullPolicy: 'Always'
+          imagePullPolicy: "Always"
           ports:
             - name: http
               containerPort: 80
           env:
-            - name: 'appdirectory'
-              value: '/app/settings/'
+            - name: "appdirectory"
+              value: "/app/settings/"
           volumeMounts:
             - name: configs
-              mountPath: '/app/settings'
+              mountPath: "/app/settings"
           livenessProbe:
             httpGet:
               path: /health

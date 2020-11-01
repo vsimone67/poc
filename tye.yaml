@@ -14,14 +14,14 @@ services:
     project: Hub.Service/Hub.Service.csproj
     bindings:
       - port: 4002
-  - name: apigateway
-    project: ApiGateway/ApiGateway.csproj    
-    bindings:
-      - port: 4003
-  - name: authservice
-    project: Authentication.Service/Authentication.Service.csproj
-    bindings:
-      - port: 4004
+  # - name: apigateway
+  #   project: ApiGateway/ApiGateway.csproj    
+  #   bindings:
+  #     - port: 4003
+  # - name: authservice
+  #   project: Authentication.Service/Authentication.Service.csproj
+  #   bindings:
+  #     - port: 4004
   - name: correspondenceservice
     project: Correspondence.Service/Correspondence.Service.csproj
     bindings:

@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Hub.Service.Extensions;
+using Hub.Service.Application.StartupExtensions.ExtentionMethods;
 
 namespace Hub.Service
 {
@@ -13,8 +14,10 @@ namespace Hub.Service
         {
             try
             {
+                var basePath = Environment.GetEnvironmentVariable("appdirectory").NullToEmpty();
+
                 var configuration = new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json")
+                    .AddJsonFile($"{basePath}appsettings.json")
                     .Build();
 
                 Log.Logger = new LoggerConfiguration()

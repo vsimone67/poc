@@ -13,8 +13,10 @@ namespace Correspondence.Service
         {
             try
             {
+                var basePath = Environment.GetEnvironmentVariable("appdirectory").NullToEmpty();
+
                 var configuration = new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json")
+                    .AddJsonFile($"{basePath}appsettings.json")
                     .Build();
 
                 Log.Logger = new LoggerConfiguration()

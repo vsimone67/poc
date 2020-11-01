@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Fac.Service.Extensions;
+using Fac.Service.Application.StartupExtensions.ExtentionMethods;
 
 namespace Fac.Service
 {
@@ -13,8 +14,11 @@ namespace Fac.Service
         {
             try
             {
+
+                var basePath = Environment.GetEnvironmentVariable("appdirectory").NullToEmpty();
+
                 var configuration = new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json")
+                    .AddJsonFile($"{basePath}appsettings.json")
                     .Build();
 
                 Log.Logger = new LoggerConfiguration()
@@ -35,8 +39,8 @@ namespace Fac.Service
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .UseSerilog()
                 .AddAppConfigurationFromEnvironment()
+                .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
