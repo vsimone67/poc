@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FacCaseProcessor.Service.Authentication;
+using System;
 
 namespace FacCaseProcessor.Service.Extensions
 {
@@ -35,11 +36,7 @@ namespace FacCaseProcessor.Service.Extensions
 
         public static IHostBuilder AddAppConfigurationFromEnvironment(this IHostBuilder builder)
         {
-            var config = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
-                                                               .AddEnvironmentVariables()
-                                                               .Build(); // get variables from environment to pass to config (if exist)
-
-            string basePath = config.GetValue<string>("appdirectory").NullToEmpty();
+            var basePath = Environment.GetEnvironmentVariable("appdirectory").NullToEmpty();
 
             return AddConfiguration(builder, basePath);
         }

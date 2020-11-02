@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Authentication.Service.Extensions;
-using Microsoft.AspNetCore.Server.HttpSys;
 
 namespace Authentication.Service
 {
@@ -14,8 +13,10 @@ namespace Authentication.Service
         {
             try
             {
+                var basePath = Environment.GetEnvironmentVariable("appdirectory").NullToEmpty();
+
                 var configuration = new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json")
+                    .AddJsonFile($"{basePath}appsettings.json")
                     .Build();
 
                 Log.Logger = new LoggerConfiguration()

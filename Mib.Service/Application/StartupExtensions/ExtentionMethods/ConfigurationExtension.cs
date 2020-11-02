@@ -1,4 +1,5 @@
-﻿using Mib.Service.Application.StartupExtensions.ExtentionMethods;
+﻿using System;
+using Mib.Service.Application.StartupExtensions.ExtentionMethods;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,11 +34,7 @@ namespace Mib.Service.Extensions
         }
         public static IHostBuilder AddAppConfigurationFromEnvironment(this IHostBuilder builder)
         {
-            var config = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
-                                                               .AddEnvironmentVariables()
-                                                               .Build(); // get variables from environment to pass to config (if exist)
-
-            string basePath = config.GetValue<string>("appdirectory").NullToEmpty();
+            var basePath = Environment.GetEnvironmentVariable("appdirectory").NullToEmpty();
 
             return AddConfiguration(builder, basePath);
         }
