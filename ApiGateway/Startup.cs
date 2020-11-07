@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using System.Security.Cryptography;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,9 +6,6 @@ using ApiGateway.Extensions;
 using Serilog;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using Pacco.APIGateway.Ocelot.Infrastructure;
-using System.Net.Http;
-using Microsoft.AspNetCore.Authentication;
 
 namespace ApiGateway
 {

@@ -1,3 +1,4 @@
+using System.Net;
 using System;
 using System.Threading.Tasks;
 using MediatR;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Fac.Service.Application.Commands;
 using Fac.Service.Infrastructure.MassTransit.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Net.Http;
 
 namespace Fac.Service
 {
@@ -59,6 +61,56 @@ namespace Fac.Service
         {
             await Task.FromResult(1);
             return Ok(mib);
+        }
+
+        [HttpGet]
+        [Route("Test")]
+        public async Task<ActionResult> Test()
+        {
+
+            HttpStatusCode returncode;
+            var client = new HttpClient();
+
+            var result = await client.GetAsync("http://mibservice-svc/mib/MyRoute");
+
+
+
+            // Ensure we have a Success Status Code
+            result.EnsureSuccessStatusCode();
+
+            // Read Response Content (this will usually be JSON content)
+            var content = await result.Content.ReadAsStringAsync();
+
+            returncode = result.StatusCode;
+
+
+
+            return Ok(content);
+        }
+
+        [HttpGet]
+        [Route("Test2")]
+        public async Task<ActionResult> Test2()
+        {
+
+            HttpStatusCode returncode;
+            var client = new HttpClient();
+
+            var result = await client.GetAsync("http://workoutservice-svc.fitnesstracker.svc.cluster.local/workout/GetBodyInfo");
+
+
+
+            // Ensure we have a Success Status Code
+            result.EnsureSuccessStatusCode();
+
+            // Read Response Content (this will usually be JSON content)
+            var content = await result.Content.ReadAsStringAsync();
+
+            returncode = result.StatusCode;
+
+
+
+            return Ok(content);
         }
     }
 }

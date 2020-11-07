@@ -1,9 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ApiGateway.Persistence.DbService;
-using ApiGateway.Persistence.Context;
-using Pacco.APIGateway.Ocelot.Infrastructure;
 
 namespace ApiGateway.Extensions
 {

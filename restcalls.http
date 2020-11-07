@@ -29,5 +29,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hc
 ###
 http://localhost:4003/fac/FacCaseDecision
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiR0FNRVJQQ1xcdnNpbW8iLCJleHAiOjE2MDM2Mzc2ODksImlzcyI6IlhYWFgiLCJhdWQiOiJYWFhYIn0.LzFQgAVS4gqy69afhtZ8O2JfHFUTgeZs0JWXz0YQybI
-
+###
+GET http://facpoc.titan/mib/MyRoute
+###
+GET http://facpoc.titan/fac/Test
+###
+GET http://facpoc.titan/fac/Test2
+###
+GET http://192.168.86.232/fac/SubmitCase
 

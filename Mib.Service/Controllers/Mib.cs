@@ -7,14 +7,14 @@ using Mib.Service.Application.Queries;
 
 namespace Mib.Service.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-    public class MyController : ControllerBase
+    public class MibController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<MyController> _logger;
+        private readonly ILogger<MibController> _logger;
 
-        public MyController(IMediator mediator, ILogger<MyController> logger)
+        public MibController(IMediator mediator, ILogger<MibController> logger)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -24,10 +24,9 @@ namespace Mib.Service.Controllers
         [Route("MyRoute")]
         public async Task<ActionResult> MyRoute()
         {
-            _logger.LogDebug("Begin");
-            var data = await _mediator.Send(new MyQuery());
+            _logger.LogDebug("Begin");            
             _logger.LogDebug("End");
-            return Ok(data);
+            return Ok("hello");
         }
     }
 }

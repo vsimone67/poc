@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway
+  namespace: fac
+spec:
+  selector:
+    matchLabels:
+      app: apigateway
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: apigateway
+    spec:
+      containers:
+        - name: apigateway-pod
+          image: vsimone67/apigateway:latest
+          imagePullPolicy: 'Always'
+          ports:
+            - name: http
+              containerPort: 80
+          env:
+            - name: 'appdirectory'
+              value: '/app/settings/'
+          volumeMounts:
+            - name: configs
+              mountPath: '/app/settings'
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: configs
+          projected:
+            sources:
+              - configMap:
+                  name: appsettings-apigateway
+              - secret:
+                  name: appsettings-secret-apigateway
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apigateway-svc
+  namespace: fac
+spec:
+  ports:
+    - name: web
+      port: 80
+  selector:
+    app: apigateway
+  type: LoadBalancer
