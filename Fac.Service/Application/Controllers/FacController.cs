@@ -34,7 +34,7 @@ namespace Fac.Service
             return Ok(data);
         }
 
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [HttpGet]
         [Route("FacCaseDecision")]
         public async Task<ActionResult> FacCaseDecision()

@@ -27,7 +27,8 @@ namespace Correspondence.Service
             services.ConfigureDiEnvironment(Configuration);
             services.MapConfigToClass(Configuration);
             services.AddDistributedTracing(Configuration);
-            services.AddMassTransitActiveMq();
+            //services.AddMassTransitActiveMq();
+            services.AddMassTransitRabbitMq();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
