@@ -11,7 +11,7 @@ WORKDIR "/src/."
 RUN dotnet build "ApiGateway.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ApiGateway.csproj" -c Release -o /app/publish
+RUN dotnet publish "ApiGateway.csproj" -c Kubernetes -o /app/publish
 
 FROM base AS final
 WORKDIR /app

@@ -13,7 +13,7 @@ WORKDIR "/src/."
 RUN dotnet build "Fac.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Fac.Service.csproj" -c Release -o /app/publish
+RUN dotnet publish "Fac.Service.csproj" -c Kubernetes -o /app/publish
 
 FROM base AS final
 WORKDIR /app

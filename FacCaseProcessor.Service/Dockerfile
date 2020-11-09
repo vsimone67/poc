@@ -11,7 +11,7 @@ WORKDIR "/src/."
 RUN dotnet build "FacCaseProcessor.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "FacCaseProcessor.Service.csproj" -c Release -o /app/publish
+RUN dotnet publish "FacCaseProcessor.Service.csproj" -c Kubernetes -o /app/publish
 
 FROM base AS final
 WORKDIR /app

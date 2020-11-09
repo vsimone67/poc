@@ -31,45 +31,12 @@ namespace ApiGateway
             services.ConfigureDiEnvironment(Configuration);
             services.MapConfigToClass(Configuration);
             //services.AddMassTransitRabbitMq();
-            services.AddOcelot();
-
-            //services.AddSingleton<IAnonymousRouteValidator, AnonymousRouteValidator>();
+            services.AddOcelot();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
-            // var configuration = new OcelotPipelineConfiguration
-            // {
-            //     AuthenticationMiddleware = async (context, next) =>
-            //     {
-            //         if (!context.DownstreamReRoute.IsAuthenticated)
-            //         {
-            //             await next.Invoke();
-            //             return;
-            //         }
-
-            //         if (context.HttpContext.RequestServices.GetRequiredService<IAnonymousRouteValidator>()
-            //             .HasAccess(context.HttpContext.Request.Path))
-            //         {
-            //             await next.Invoke();
-            //             return;
-            //         }
-
-            //         var authenticateResult = await context.HttpContext.AuthenticateAsync();
-            //         if (authenticateResult.Succeeded)
-            //         {
-            //             context.HttpContext.User = authenticateResult.Principal;
-            //             await next.Invoke();
-            //             return;
-            //         }
-
-            //         context.Errors.Add(new UnauthenticatedError("Unauthenticated"));
-            //     }
-            // };
-
-
             app.UseRouting();
             app.UserCorsPolicy();
             app.UseJwtAuthentication();

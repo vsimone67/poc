@@ -52,4 +52,18 @@ spec:
       port: 80
   selector:
     app: apigateway
-  type: LoadBalancer
+---
+kind: IngressRoute
+apiVersion: traefik.containo.us/v1alpha1
+metadata:
+  name: apigateway-route
+  namespace: fac
+spec:
+  entryPoints:
+    - web
+  routes:  
+    - match: Host(`apigateway.titan`)
+      kind: Rule
+      services:
+        - name: apigateway-svc
+          port: 80

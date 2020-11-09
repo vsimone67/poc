@@ -5,6 +5,7 @@
     <UserSecretsId>c09b2a41-4b89-45ad-82fb-5f04a44e6810</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <Configurations>Debug;Release;Kubernetes</Configurations>
   </PropertyGroup>
 
 <ItemGroup>
@@ -37,18 +38,17 @@
     <PackageReference Include="Steeltoe.Extensions.Logging.DynamicSerilogBase" Version= "3.0.0"/>
   </ItemGroup>    
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">       
+    <!-- <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Development|AnyCPU'">       
         <EnvironmentName>Development</EnvironmentName>        
-    </PropertyGroup>  
+    </PropertyGroup>   -->
 
-   
-  <!-- <Choose>
+  <Choose>
     <When Condition="'$(Configuration)' == 'Kubernetes'">
       <ItemGroup>
         <Content Remove="appsettings.json" />
         <Content Remove="appsettings.*.json" />
     </ItemGroup> 
     </When>  
-</Choose> -->
-       
+</Choose>
+
 </Project>

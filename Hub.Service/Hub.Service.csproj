@@ -32,5 +32,14 @@
     <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />    
     <PackageReference Include="Steeltoe.Extensions.Logging.DynamicSerilogBase" Version= "3.0.0"/>
   </ItemGroup> 
+  
+    <Choose>
+    <When Condition="'$(Configuration)' == 'Kubernetes'">
+      <ItemGroup>
+        <Content Remove="appsettings.json" />
+        <Content Remove="appsettings.*.json" />
+    </ItemGroup> 
+    </When>  
+</Choose>
     
 </Project>
