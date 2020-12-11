@@ -47,6 +47,7 @@ namespace Hub.Service.Extensions
                     Predicate = _ => true,
                     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
                 });
+                
                 endpoints.MapHub<MibHub>("/mibhub");
                 endpoints.MapHub<FacDecisionHub>("/facdecision");
                 endpoints.MapHub<FacCaseHub>("/faccase");

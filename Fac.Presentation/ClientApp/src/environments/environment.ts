@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiGatewayUrl: "http://facpoc.titan"
+  apiGatewayUrl: "http://traefik.prod"
 
 };
 

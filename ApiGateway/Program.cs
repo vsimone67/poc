@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using ApiGateway.Extensions;
+using Fac.Service.Application.StartupExtensions.ExtentionMethods;
 
 namespace ApiGateway
 {
